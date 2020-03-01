@@ -1,10 +1,46 @@
-<!DOCTYPE html>
 <html>
+<head>
+<title>Fluencies CIT 261</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+
+<link href="bootstrap-3.0.0/dist/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    
+</head>
+
 <body>
 
-<h1>My First Heading</h1>
+Index:
 
-<p>My first paragraph.</p>
+<ul class="list-group">
+    <li class="list-group-item list-group-item-action">
+        <a href="/fluencies/three/index.html">Week 3</a>
+    </li>
+    <li class="list-group-item list-group-item-action">
+        <a href="/fluencies/four/index.html">Week 4</a>
+    </li>
+    <li class="list-group-item list-group-item-action">
+        <a href="/fluencies/five/index.html">Week 5</a>
+    </li>
+    <li class="list-group-item list-group-item-action">
+        <a href="/fluencies/six/index.html">Week 6</a>
+    </li>
+    <li class="list-group-item list-group-item-action">
+        <a href="/fluencies/seven/index.html">Week 7</a>
+    </li>
+    <li class="list-group-item list-group-item-action">
+        <a href="/fluencies/eight/index.html">Week 8</a>
+    </li>
+    <li class="list-group-item list-group-item-action">
+        <a href="/fluencies/nine/index.html">Week 9</a>
+    </li>
+    <li class="list-group-item list-group-item-action">
+        <a href="/fluencies/ten/index.html">Week 10</a>
+    </li>
+</ul>
+
+<script src="//code.jquery.com/jquery.js"></script>
+<script src="bootstrap-3.0.0/dist/js/bootstrap.min.js"></script>
+
 
 </body>
 </html>
