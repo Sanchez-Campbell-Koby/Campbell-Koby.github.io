@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Week 3</title>
+<!-- <link rel="stylesheet" href="../css/bootstrap.css" type="text/css"/> -->
+<style>
+  .card {
+  /* Add shadows to create the "card" effect */
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+}
+
+/* On mouse-over, add a deeper shadow */
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+/* Add some padding inside the card container */
+.container {
+  padding: 2px 16px;
+}
+</style>
+</head>
+
+<body>
+
+<!--   <div class = "container"> -->
+<!--     <div class="hero-unit"> -->
+<!--       <div class = "pagination-centered"> -->
+          Javascript and JS Objects
+          <br>
+          <button onclick="button(1);">1</button>
+          <button onclick="button(2);">2</button>
+          <button onclick="button(3);">3</button>
+
+          <p id="demo"></p>
+<!--       </div> -->
+
+<!--     </div> -->
+<!--   </div> -->
+  
+
+
+
+
+    <script type="text/javascript">
+      
+      function getObject(){
+        const obj = [{
+            id : 1,
+            name: "Elephant",
+            description: "Elephants are mammals of the family Elephantidae and the largest existing land animals. Three species are currently recognised: the African bush elephant, the African forest elephant, and the Asian elephant. Elephantidae is the only surviving family of the order Proboscidea; extinct members include the mastodons",
+            picture: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/African_Bush_Elephant.jpg/400px-African_Bush_Elephant.jpg"
+        },{
+            id : 2,
+            name: "Fox",
+            description: "Foxes are small to medium-sized, omnivorous mammals belonging to several genera of the family Canidae. Foxes have a flattened skull, upright triangular ears, a pointed, slightly upturned snout, and a long bushy tail (or brush).",
+            picture: "https://www.wkrg.com/wp-content/uploads/sites/49/2018/06/fox15_1528922063230_45374179_ver1.0.jpg"
+        },{
+            id : 3,
+            name: "Leopard",
+            description: "The leopard (Panthera pardus) is one of the five extant species in the genus Panthera, a member of the Felidae. It occurs in a wide range in sub-Saharan Africa, in small parts of Western and Central Asia, on the Indian subcontinent to Southeast and East Asia.",
+            picture: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/African_Leopard_Near_Okevi_Waterhole_Etosha_Namibia.jpg/220px-African_Leopard_Near_Okevi_Waterhole_Etosha_Namibia.jpg"
+          }];
+        let stringify = JSON.stringify(obj);
+        console.log(stringify);
+        let parse = JSON.parse(stringify);
+        console.log(parse);
+        return obj;
+      }
+      function button(input){
+        var i;
+        var text = getObject();
+        
+        var result;
+        for (i=0;i<text.length;i++){
+          if(text[i].id == input){
+            result = text[i];
+          }
+        }
+        var html = "<div class='card'> <img src='"+result.picture+"' alt='Avatar' style='width:100%'> <div class='container'> <h4><b>"+result.name+"</b></h4><p>"+result.description+"</p></div></div>"
+        document.getElementById("demo").innerHTML = html;
+        
+        // const result = text.filter(id => input);
+        // console.log(result);
+        
+        
+      }   
+    </script>
+
+
+<!--     <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script> -->
+<!--     <script src="localhost/kimi/CS261/js/bootstrap.js"></script> -->
+    
+</body>
+</html>

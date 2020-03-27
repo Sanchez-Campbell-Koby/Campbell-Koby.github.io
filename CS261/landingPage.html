@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"> 
+    <title>JSON, AJAX, & Local Storage API</title>
+    <link rel="stylesheet" href="../css/bootstrap.css" type="text/css"/>
+    <script>
+        function search() {
+            var artist = document.getElementById("artist").value;
+            var title = document.getElementById("title").value;
+            var xhttp = new XMLHttpRequest();
+            var url = 'https://api.lyrics.ovh/v1/'+artist+'/'+title;
+
+            xhttp.onload = function() {
+                var data = JSON.parse(this.response);
+                
+                document.getElementById("lyrics").innerHTML = data.lyrics;
+            };
+            xhttp.open("GET", url, true);
+            xhttp.send();
+            
+        }
+        
+
+
+    </script>
+</head>
+<body >
+    <div class = "container">
+        <h1><a href="../img/why.jpg">JSON, AJAX, & Local Storage API</a></h1>
+
+        <div class="navbar">
+            <div class="navbar-inner">
+                <div class="container">
+                <ul class="nav">
+                    <li class="active"><a href="/movies">Search</a></li>
+                    
+                    
+                </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="hero-unit" style ="background-image: url('../img/film.jpg');">
+            <div class = "pagination-centered">
+                <p>Search for Song Lyrics:</p>
+                <div class = "form-group">
+                    <label for="artist">Artist: </label>
+                    <input class="form-control" type="text" id = "artist" placeholder="Coldplay"> 
+                    <label for="artist">Song Title: </label>
+                    <input class="form-control" type="text" id = "title" placeholder="Adventure of a Lifetime">               
+                    <input type="submit" class="btn-success btn-small" onclick = "search()" value = "Search"/>
+                </div>
+            </div>
+                
+        </div>
+
+        <div class="row" style ="background-image: url('../img/dynamic.jpg');">
+            <div class="span12">
+                <p id = "lyrics" class = "pagination-centered"></p>
+            </div>
+            
+        </div>
+
+
+
+
+
+    </div>
+
+
+
+
+
+    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <script src="localhost/kimi/CS261/js/bootstrap.js"></script>
+</body>
+</html>

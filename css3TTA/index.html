@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>CSS3 Transitions, Animations, & Transforms</title>
+<!-- <link rel="stylesheet" href="../css/bootstrap.css" type="text/css"/> -->
+<style>
+    .gif {
+    width: 100px;
+    height: 100px;
+    transform: skewY(20deg);
+    animation-name: test;
+    animation-duration: 4s;
+    transition: 5s;
+    }
+    @keyframes test {
+        from {transform: skewY(20deg);}
+        to {transform: skewY(-20deg)}
+    }
+</style>
+</head>
+
+<body>
+    <div class = "gif">
+        <img src = "https://media.giphy.com/media/WXB88TeARFVvi/giphy.gif">
+    </div>
+</body>
+</html>

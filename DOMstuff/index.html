@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>DOM Manipulation + Standard JS Events</title>
+
+<style>
+  
+
+
+#grocery:hover {
+  background-color: blue;
+  
+}
+  
+ #cart {
+      position: relative;
+      cursor: pointer;
+    }
+    .title {
+      text-align: center;
+		  padding: 100px 0 0 0;
+      
+      -webkit-animation: rotation 2s infinite linear;
+    }
+
+    @-webkit-keyframes rotation {
+        from {
+            -webkit-transform: rotate(0deg);
+        }
+        to {
+            -webkit-transform: rotate(359deg);
+        }
+    }
+</style>
+</head>
+
+<body>
+    
+      
+      <p class="title">Grocery List</p>
+  <br><br>
+      <input type="text" id="grocery" onfocus="this.value=''">
+      <button id = "btn" onclick="groceryList()">Add</button>
+      <ul id="myList">
+        
+      </ul>
+  <img id="cart" src="https://www.zanduco.com/UserFiles/product/25000-014_Shopping-Cart.jpg">
+      <script>
+      function groceryList() {  
+        var list = document.getElementById("grocery").value;
+        
+        console.log(list);
+        var newItem = document.createElement("li");
+        var textnode = document.createTextNode(list);
+        newItem.appendChild(textnode);
+      
+        var list = document.getElementById("myList");
+        list.insertBefore(newItem, list.childNodes[0]);
+      }
+      var input = document.getElementById("grocery");
+      input.addEventListener("keyup", function(event) {
+        if (event.keyCode === 13) {
+        event.preventDefault();
+        document.getElementById("btn").click();
+        }
+      });
+        cart.onload = function() {
+      let start = Date.now();
+
+      let timer = setInterval(function() {
+        let timePassed = Date.now() - start;
+
+        cart.style.left = timePassed / 5 + 'px';
+
+        if (timePassed > 2000) clearInterval(timer);
+
+      }, 20);
+    }
+        
+    document.getElementById("grocery").style.transition = "all 10s";
+        
+      </script>
+</body>
+</html>

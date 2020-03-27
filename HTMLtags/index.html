@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>HTML Tags</title>
+<!-- <link rel="stylesheet" href="../css/bootstrap.css" type="text/css"/> -->
+<style>
+    
+</style>
+</head>
+
+<body>
+    <iframe width="420" height="345" src="https://www.youtube.com/embed/tgbNymZ7vqY">
+    </iframe>
+    <audio controls>
+        <source src="emmett.mp4" type="audio/ogg">
+        <source src="emmett.ogg" type="audio/mpeg">
+        Your browser does not support the audio tag.
+      </audio>
+
+      <canvas  width="300" height="150" style="border:1px solid #cccccc;" id="canvasExample">
+        Your browser does not support the HTML5 canvas tag.
+      </canvas>
+      <script>
+        var c = document.getElementById("canvasExample");
+        var ctx = c.getContext("2d");
+        ctx.moveTo(0,0);
+        ctx.lineTo(300,150);
+        ctx.strokeStyle='#1c87c9';
+        ctx.stroke();
+      </script>
+</html>
