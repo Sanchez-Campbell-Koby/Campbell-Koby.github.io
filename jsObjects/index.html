@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"> 
+
+    <link rel="stylesheet" href="../css/bootstrap.css" type="text/css"/>
+
+<title>Bro. Eddington - CS261</title>
+<script>
+    function vehicleObj(name, url, facts){
+        this.name = name;
+        this.url = url;
+        this.facts = facts;
+    }
+    
+    function boat(){
+        let name = "Quite Essential - Yacht";
+        let url = "https://www.merlewood.com/luxury-yacht-for-sale-61956/quite-essential-yacht-photos-30-1920x882.jpg";
+        let facts = "Quite Essential (ex Quinta Essentia) was the largest and one of the most powerful Heesen yachts when she was delivered in 2011. Powered by a pair of 4,300kW, MTU 20V 4000 M93L diesel engines, Quite Essential will reach a notable top speed of 24 knots. In consultation with Van Oossanen Associates, Heesen’s in-house naval architects have created a sophisticated and highly efficient hard-chine hull, while Frank Laupman from Omega Architects drew the sleek and elegant exterior lines.";
+        var yacht = new vehicleObj(name, url, facts);
+        console.log(yacht);
+        document.getElementById("vehicle").innerHTML = "<h3>"+yacht.name+"</h3><img src ='"+yacht.url+"'><br><p>"+yacht.facts+"</p>" ;
+    }
+    function car(){
+        let name = "Huracan EVO Spyder - Lamborghini";
+        let url = "https://www.lamborghini.com/sites/it-en/files/DAM/lamborghini/model/huracan/evo_spyder/overview/01-overview.jpg";
+        let facts = "The Huracán EVO Spyder lets one experience the thrill of extreme driving. Colors, smells and sounds meld with a seductive design and ultra-light materials. The 640 hp naturally aspirated V10 engine roars with authority, as the exhaust announces the presence of a formidable machine. The aerodynamic lines of the super sports car, perfectly streamlined, slice through the air.";
+        var car = new vehicleObj(name, url, facts);
+        console.log(car);
+        document.getElementById("vehicle").innerHTML = "<h3>"+car.name+"</h3><img src ='"+car.url+"'><br><p>"+car.facts+"</p>" ;
+    }
+
+</script>
+</head> 
+
+<body>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <h3 class="navbar-brand" style = "text-align: center;">Fluencies Koby Sanchez-Campbell</h3>
+          </div>
+          <ul class="nav navbar-nav">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="../week3/index3.html">JavaScript & JS Objects</a></li>
+            <li><a href="../css3TTA/index.html">CSS3 Transitions, Transforms, & Animations</a></li>
+            <li><a href="../CS261/landingPage.html">JSON, AJAX, & API</a></li>
+            <li><a href="../DOMstuff/index.html">DOM Manipulation + Local & Session Storage</a></li>
+            <li><a href="../HTMLtags/index.html">HTML Tags</a></li>
+            <li class="active"><a href="./index.html">JS Objects (inheritance)</a></li>
+
+        </ul>
+        </div>
+      </nav>
+      <button id = "btn" onclick="boat();">Yacht</button>
+      <button id = "btn" onclick="car();">Lamborghini</button>
+
+      <p id = "vehicle"></p>
+
+
+      <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+      <script src="../js/bootstrap.js"></script>
+
+  
+</body>
+</html>
