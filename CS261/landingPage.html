@@ -2,19 +2,33 @@
 <html>
 <head>
     <meta charset="utf-8"> 
-    <title>JSON, AJAX, & Local Storage API</title>
+    <title>Movie Database</title>
     <link rel="stylesheet" href="../css/bootstrap.css" type="text/css"/>
     <script>
         function search() {
-            var artist = document.getElementById("artist").value;
-            var title = document.getElementById("title").value;
+            var title = document.getElementById("search_params").value;
             var xhttp = new XMLHttpRequest();
-            var url = 'https://api.lyrics.ovh/v1/'+artist+'/'+title;
+            var url = 'http://www.omdbapi.com/?t='+title+'&apikey=50bd083';
 
             xhttp.onload = function() {
                 var data = JSON.parse(this.response);
-                
-                document.getElementById("lyrics").innerHTML = data.lyrics;
+                document.getElementById("poster").innerHTML = 
+                    "<h1>"+data.Title+" ("+data.Year+")</h1>"+
+                    "<img src = "+data.Poster+">"+
+                    "<br>"+
+                    "______________________________________________"+
+                    "<h6>"+data.Genre+"  |  "+data.Released+"</h6>";
+                // var rating = Math.round(data.imdbRating);  (add to line 26 -> '+&frasl;10')
+                var rating = data.imdbRating*10;
+                    
+                document.getElementById("info").innerHTML = 
+                    "<br><br><br><br><br><br><br><br><br>"+
+                    "<h4>IMDB Score: "+rating+"%</h4>"+
+                    "<blockquote>"+data.Plot+"</blockquote>"+                    
+                    "<h6><strong>Director:</strong> "+data.Director+"</h6>"+
+                    "<h6><strong>Writers:</strong> "+data.Writer+"</h6>"+
+                    "<h6><strong>Stars:</strong> "+data.Actors+"</h6>";
+                    console.log(data);
             };
             xhttp.open("GET", url, true);
             xhttp.send();
@@ -26,29 +40,27 @@
     </script>
 </head>
 <body >
-    <div class = "container">
-        <h1><a href="../img/why.jpg">JSON, AJAX, & Local Storage API</a></h1>
-
-        <div class="navbar">
-            <div class="navbar-inner">
-                <div class="container">
-                <ul class="nav">
-                    <li class="active"><a href="/movies">Search</a></li>
-                    
-                    
-                </ul>
-                </div>
-            </div>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <h3 class="navbar-brand" style = "text-align: center;">Fluencies Koby Sanchez-Campbell</h3>
+          </div>
+          <ul class="nav navbar-nav">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="../week3/index3.html">JavaScript & JS Objects</a></li>
+            <li><a href="../css3TTA/index.html">CSS3 Transitions, Transforms, & Animations</a></li>
+            <li class="active"><a href="./landingPage.html">JSON, AJAX, & API</a></li>
+            <li><a href="../DOMstuff/index.html">DOM Manipulation + Local & Session Storage</a></li>
+            <li><a href="../HTMLtags/index.html">HTML Tags</a></li>
+            </ul>
         </div>
+      </nav>
 
         <div class="hero-unit" style ="background-image: url('../img/film.jpg');">
             <div class = "pagination-centered">
-                <p>Search for Song Lyrics:</p>
+                <p>Search Database for Movie by Title:</p>
                 <div class = "form-group">
-                    <label for="artist">Artist: </label>
-                    <input class="form-control" type="text" id = "artist" placeholder="Coldplay"> 
-                    <label for="artist">Song Title: </label>
-                    <input class="form-control" type="text" id = "title" placeholder="Adventure of a Lifetime">               
+                    <input class="form-control" type="text" id = "search_params" placeholder="e.g. 'Lord of the Rings'">        
                     <input type="submit" class="btn-success btn-small" onclick = "search()" value = "Search"/>
                 </div>
             </div>
@@ -56,10 +68,12 @@
         </div>
 
         <div class="row" style ="background-image: url('../img/dynamic.jpg');">
-            <div class="span12">
-                <p id = "lyrics" class = "pagination-centered"></p>
+            <div class="span7">
+                <p id = "poster" class = "pagination-centered"></p>
             </div>
-            
+            <div class="span5">
+                <p id = "info"></p>
+            </div>
         </div>
 
 
@@ -73,6 +87,6 @@
 
 
     <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
-    <script src="localhost/kimi/CS261/js/bootstrap.js"></script>
+    <script src="../js/bootstrap.js"></script>
 </body>
 </html>

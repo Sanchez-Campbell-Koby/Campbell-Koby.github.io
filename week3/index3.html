@@ -4,6 +4,13 @@
 <title>Week 3</title>
 <!-- <link rel="stylesheet" href="../css/bootstrap.css" type="text/css"/> -->
 <style>
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
   .card {
   /* Add shadows to create the "card" effect */
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
@@ -20,21 +27,43 @@
   padding: 2px 16px;
 }
 </style>
+<meta charset="utf-8"> 
+
+<link rel="stylesheet" href="../css/bootstrap.css" type="text/css"/>
+
 </head>
 
 <body>
 
-<!--   <div class = "container"> -->
-<!--     <div class="hero-unit"> -->
-<!--       <div class = "pagination-centered"> -->
-          Javascript and JS Objects
-          <br>
-          <button onclick="button(1);">1</button>
-          <button onclick="button(2);">2</button>
-          <button onclick="button(3);">3</button>
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <h3 class="navbar-brand" style = "text-align: center;">Fluencies Koby Sanchez-Campbell</h3>
+      </div>
+      <ul class="nav navbar-nav">
+        <li><a href="../index.html">Home</a></li>
+        <li class="active"><a href="./index3.html">JavaScript & JS Objects</a></li>
+        <li><a href="../css3TTA/index.html">CSS3 Transitions, Transforms, & Animations</a></li>
+        <li><a href="../CS261/landingPage.html">JSON, AJAX, & API</a></li>
+        <li><a href="../DOMstuff/index.html">DOM Manipulation + Local & Session Storage</a></li>
+        <li><a href="../HTMLtags/index.html">HTML Tags</a></li>
+      </ul>
+    </div>
+  </nav>
+  
 
-          <p id="demo"></p>
-<!--       </div> -->
+  <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+  <script src="../js/bootstrap.js"></script>
+
+
+  
+          <h3 class="center">JS and JS Objects: Learn about these 3 specific animals</h3>
+          <br>
+          <button class="center" onclick="button(1);">Elephant</button>
+          <button class="center" onclick="button(2);">Fox</button>
+          <button class="center" onclick="button(3);">Leopard</button>
+
+          <p id="demo" class="center"></p>
 
 <!--     </div> -->
 <!--   </div> -->
@@ -78,7 +107,7 @@
             result = text[i];
           }
         }
-        var html = "<div class='card'> <img src='"+result.picture+"' alt='Avatar' style='width:100%'> <div class='container'> <h4><b>"+result.name+"</b></h4><p>"+result.description+"</p></div></div>"
+        var html = "<div class='card'> <img src='"+result.picture+"' alt='Avatar' style='width:100%'> <div class='center'> <h4><b>"+result.name+"</b></h4><p>"+result.description+"</p></div></div>"
         document.getElementById("demo").innerHTML = html;
         
         // const result = text.filter(id => input);

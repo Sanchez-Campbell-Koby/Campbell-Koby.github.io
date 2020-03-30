@@ -2,6 +2,9 @@
 <html>
 <head>
 <title>DOM Manipulation + Standard JS Events</title>
+<meta charset="utf-8"> 
+
+<link rel="stylesheet" href="../css/bootstrap.css" type="text/css"/>
 
 <style>
   
@@ -35,17 +38,62 @@
 </head>
 
 <body>
-    
-      
+<meta charset="utf-8"> 
+
+<link rel="stylesheet" href="../css/bootstrap.css" type="text/css"/>
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <h3 class="navbar-brand" style = "text-align: center;">Fluencies Koby Sanchez-Campbell</h3>
+    </div>
+    <ul class="nav navbar-nav">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../week3/index3.html">JavaScript & JS Objects</a></li>
+      <li><a href="../css3TTA/index.html">CSS3 Transitions, Transforms, & Animations</a></li>
+      <li><a href="../CS261/landingPage.html">JSON, AJAX, & API</a></li>
+      <li  class="active"><a href="./DOMstuff/index.html">DOM Manipulation + Local & Session Storage</a></li>
+      <li><a href="../HTMLtags/index.html">HTML Tags</a></li>
+            </ul>
+  </div>
+</nav>
+
+<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+<script src="../js/bootstrap.js"></script>
+
       <p class="title">Grocery List</p>
+      <div id="result"></div>
   <br><br>
       <input type="text" id="grocery" onfocus="this.value=''">
       <button id = "btn" onclick="groceryList()">Add</button>
+      <button id = "memory" onclick="locSto()">Retrieve Cleared List item</button>
+      <button id = "clear">Clear</button>
+      <button onclick="clickCounter()" type="button">Click to see Session Storage</button>
+
       <ul id="myList">
         
       </ul>
+      <p id ="locSto"></p>
   <img id="cart" src="https://www.zanduco.com/UserFiles/product/25000-014_Shopping-Cart.jpg">
       <script>
+      function clickCounter() {
+        if (typeof(Storage) !== "undefined") {
+          if (sessionStorage.clickcount) {
+            sessionStorage.clickcount = Number(sessionStorage.clickcount)+1;
+          } else {
+            sessionStorage.clickcount = 1;
+          }
+          
+          document.getElementById("result").innerHTML = "You've clicked this " + sessionStorage.clickcount + " time(s) without closing the tab";
+        } else {
+          document.getElementById("result").innerHTML = "Sorry, your browser does not support web storage...";
+        }
+      }
+      $("#clear").click(function(){
+        $("#myList").empty();
+      });
+      function locSto(){
+        document.getElementById("locSto").innerHTML += localStorage.getItem("list");
+      }
       function groceryList() {  
         var list = document.getElementById("grocery").value;
         
@@ -53,7 +101,7 @@
         var newItem = document.createElement("li");
         var textnode = document.createTextNode(list);
         newItem.appendChild(textnode);
-      
+        localStorage.setItem("list", list);
         var list = document.getElementById("myList");
         list.insertBefore(newItem, list.childNodes[0]);
       }
@@ -65,9 +113,9 @@
         }
       });
         cart.onload = function() {
-      let start = Date.now();
+        let start = Date.now();
 
-      let timer = setInterval(function() {
+        let timer = setInterval(function() {
         let timePassed = Date.now() - start;
 
         cart.style.left = timePassed / 5 + 'px';
