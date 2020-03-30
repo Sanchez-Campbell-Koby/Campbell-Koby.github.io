@@ -30,7 +30,8 @@
             <li><a href="./CS261/landingPage.html">JSON, AJAX, & API</a></li>
             <li><a href="./DOMstuff/index.html">DOM Manipulation + Local & Session Storage</a></li>
             <li><a href="./HTMLtags/index.html">HTML Tags</a></li>
-                  </ul>
+            <li><a href="./jsObjects/index.html">JS Objects (inheritance)</a></li>
+        </ul>   
         </div>
       </nav>
       <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
