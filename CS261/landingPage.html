@@ -2,33 +2,44 @@
 <html>
 <head>
     <meta charset="utf-8"> 
-    <title>Movie Database</title>
+    <title>Sorting Hat</title>
     <link rel="stylesheet" href="../css/bootstrap.css" type="text/css"/>
     <script>
         function search() {
-            var title = document.getElementById("search_params").value;
             var xhttp = new XMLHttpRequest();
-            var url = 'https://www.omdbapi.com/?t='+title+'&apikey=50bd083';
+            var url = 'https://www.potterapi.com/v1/sortinghat';
 
             xhttp.onload = function() {
                 var data = JSON.parse(this.response);
-                document.getElementById("poster").innerHTML = 
-                    "<h1>"+data.Title+" ("+data.Year+")</h1>"+
-                    "<img src = "+data.Poster+">"+
-                    "<br>"+
-                    "______________________________________________"+
-                    "<h6>"+data.Genre+"  |  "+data.Released+"</h6>";
+                // document.getElementById("poster").innerHTML = 
+                //     "<h1>"+data.Title+" ("+data.Year+")</h1>"+
+                //     "<img src = "+data.Poster+">"+
+                //     "<br>"+
+                //     "______________________________________________"+
+                //     "<h6>"+data.Genre+"  |  "+data.Released+"</h6>";
                 // var rating = Math.round(data.imdbRating);  (add to line 26 -> '+&frasl;10')
-                var rating = data.imdbRating*10;
+                // var rating = data.imdbRating*10;
                     
-                document.getElementById("info").innerHTML = 
-                    "<br><br><br><br><br><br><br><br><br>"+
-                    "<h4>IMDB Score: "+rating+"%</h4>"+
-                    "<blockquote>"+data.Plot+"</blockquote>"+                    
-                    "<h6><strong>Director:</strong> "+data.Director+"</h6>"+
-                    "<h6><strong>Writers:</strong> "+data.Writer+"</h6>"+
-                    "<h6><strong>Stars:</strong> "+data.Actors+"</h6>";
-                    console.log(data);
+                if(data == 'Hufflepuff'){
+                    var image = "<img src = '../img/hufflepuff.jpg'>";
+                }
+                if(data == 'Gryffindor'){
+                    var image = "<img src = '../img/griffindor.jpg'>" ;
+                }
+                if(data == 'Ravenclaw'){
+                    var image = "<img src = '../img/ravenclaw.jpg'>";
+                }
+                if(data == 'Slytherin'){
+                    var image = "<img src = '../img/slytherin.jpg'>";
+                }
+                document.getElementById("info").innerHTML = data+"<br>"+image;
+                //     "<br><br><br><br><br><br><br><br><br>"+
+                //     "<h4>IMDB Score: "+rating+"%</h4>"+
+                //     "<blockquote>"+data.Plot+"</blockquote>"+                    
+                //     "<h6><strong>Director:</strong> "+data.Director+"</h6>"+
+                //     "<h6><strong>Writers:</strong> "+data.Writer+"</h6>"+
+                //     "<h6><strong>Stars:</strong> "+data.Actors+"</h6>";
+                    console.log(image);
             };
             xhttp.open("GET", url, true);
             xhttp.send();
@@ -58,20 +69,19 @@
         </div>
       </nav>
 
-        <div class="hero-unit" style ="background-image: url('../img/film.jpg');">
+        <div class="hero-unit" style ="background-image: url('https://image.shutterstock.com/image-vector/harry-potter-glasses-vector-icon-260nw-1528216298.jpg');">
             <div class = "pagination-centered">
-                <p>Search Database for Movie by Title:</p>
+                <p>Sorting Hat</p>
                 <div class = "form-group">
-                    <input class="form-control" type="text" id = "search_params" placeholder="e.g. 'Lord of the Rings'">        
-                    <input type="submit" class="btn-success btn-small" onclick = "search()" value = "Search"/>
+                    <input type="submit" class="btn-success btn-small" onclick = "search()" value = "Click to be sorted"/>
                 </div>
             </div>
                 
         </div>
 
-        <div class="row" style ="background-image: url('../img/dynamic.jpg');">
+        <div class="row">
             <div class="span7">
-                <p id = "poster" class = "pagination-centered"></p>
+                <p id = "poster" class = "pagination-centered" ><img src = "../img/dynamic.jpg"></p>
             </div>
             <div class="span5">
                 <p id = "info"></p>
