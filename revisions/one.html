@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"> 
+
+    <link rel="stylesheet" href="../css/bootstrap.css" type="text/css"/>
+
+<title>Bro. Eddington - CS261</title>
+<style>
+    .box {
+    margin: 30px;
+    height: 50px;
+    width: 50px;
+    background-color: blue;
+    }
+    .box.horizTranslate {
+    -webkit-transition: 3s;
+    -moz-transition: 3s;
+    -ms-transition: 3s;
+    -o-transition: 3s;
+    transition: 3s;
+    margin-left: 50% !important;
+    }
+</style>
+
+</head>
+
+<body>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <h3 class="navbar-brand" style = "text-align: center;">Fluencies Koby Sanchez-Campbell</h3>
+          </div>
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="../index.html">Home</a></li>
+            <li><a href="../week3/index3.html">JavaScript & JS Objects</a></li>
+            <li><a href="../css3TTA/index.html">CSS3 Transitions, Transforms, & Animations</a></li>
+            <li><a href="../CS261/landingPage.html">JSON, AJAX, & API</a></li>
+            <li><a href="../DOMstuff/index.html">DOM Manipulation + Local & Session Storage</a></li>
+            <li><a href="../HTMLtags/index.html">HTML Tags</a></li>
+            <li><a href="../jsObjects/index.html">JS Objects (inheritance)</a></li>
+            <li class="active"><a href="./one.html">Revised Fluency 1</a></li>
+            <li><a href="./two.html">Revised Fluency 2</a></li>
+            <li><a href="./three.html">Revised Fluency 3</a></li>
+
+
+        </ul>   
+        </div>
+      </nav>
+      <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+      <script src="../js/bootstrap.js"></script>
+
+    <div class='box'></div> 
+    <button class='toggleButton' value='play'>Play</button>
+
+    <h3>jQuery</h3>
+    <div class='box'></div> 
+    <button class='toggleButton' value='play'>Play</button>
+    <script>
+        var boxOne = document.getElementsByClassName('box')[0],
+        $boxTwo = $('.box:eq(1)');
+    
+    document.getElementsByClassName('toggleButton')[0].onclick = function() {
+        if(this.innerHTML === 'Play') { 
+            this.innerHTML = 'Pause';
+            boxOne.classList.add('horizTranslate');
+        } else {
+            this.innerHTML = 'Play';
+            var computedStyle = window.getComputedStyle(boxOne),
+                marginLeft = computedStyle.getPropertyValue('margin-left');
+            boxOne.style.marginLeft = marginLeft;
+            boxOne.classList.remove('horizTranslate');    
+        }  
+    }
+    
+    $('.toggleButton:eq(1)').on('click', function() { 
+        if($(this).html() === 'Play')  {
+            $(this).html('Pause');
+            $boxTwo.addClass('horizTranslate');
+        } 
+        else {
+            $(this).html('Play');
+            var computedStyle = $boxTwo.css('margin-left');
+            $boxTwo.removeClass('horizTranslate');
+            $boxTwo.css('margin-left', computedStyle);
+        }  
+    });
+    </script>
+  
+</body>
+</html>

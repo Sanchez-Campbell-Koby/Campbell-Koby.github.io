@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"> 
+
+    <link rel="stylesheet" href="../css/bootstrap.css" type="text/css"/>
+
+<title>Bro. Eddington - CS261</title>
+<style>
+.styling {
+  width: 67%;
+  padding: 15px;
+  background-color: blue;
+  color: white;
+  font-size: 40px;
+  box-sizing: border-box;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+</style>
+</head>
+
+<body>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <h3 class="navbar-brand" style = "text-align: center;">Fluencies Koby Sanchez-Campbell</h3>
+          </div>
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="../index.html">Home</a></li>
+            <li><a href="../week3/index3.html">JavaScript & JS Objects</a></li>
+            <li><a href="../css3TTA/index.html">CSS3 Transitions, Transforms, & Animations</a></li>
+            <li><a href="../CS261/landingPage.html">JSON, AJAX, & API</a></li>
+            <li><a href="../DOMstuff/index.html">DOM Manipulation + Local & Session Storage</a></li>
+            <li><a href="../HTMLtags/index.html">HTML Tags</a></li>
+            <li><a href="../jsObjects/index.html">JS Objects (inheritance)</a></li>
+            <li><a href="./one.html">Revised Fluency 1</a></li>
+            <li class="active"><a href="./two.html">Revised Fluency 2</a></li>
+            <li><a href="./three.html">Revised Fluency 3</a></li>
+
+
+        </ul>   
+        </div>
+      </nav>
+      <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+      <script src="../js/bootstrap.js"></script>
+
+    <button class = "center" onclick="removeStyle()">Remove Style</button>
+    <button class = "center" onclick="addStyle()">Add Style</button>
+
+
+    <div id="divvy" class="styling">
+        The Campbell Family
+    </div>
+
+<script>
+    function removeStyle() {
+        var element = document.getElementById("divvy");
+        element.classList.remove("styling");
+    }    
+    function addStyle() {
+        var element = document.getElementById("divvy");
+        element.classList.add("styling");
+    }
+</script>
+  
+</body>
+</html>
