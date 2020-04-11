@@ -39,7 +39,7 @@
         </ul>   
         </div>
       </nav>
-      <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+      <script src="https://code.jquery.com/jquery-1.10.1.min.js"></script>
       <script src="./js/bootstrap.js"></script>
 
       <img src="./img/website.jpg" class="center">
